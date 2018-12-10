@@ -39,3 +39,26 @@ console.log([...obj]);
 for (v of obj) {
   console.log(v);
 }
+
+//numbers object with an iterable method
+const numbers = {
+  *[Symbol.iterator]({ step = 1, start = 0, end = 100 } = {}) {
+    for (let i = start; i <= end; i += step) yield i;
+  }
+};
+
+//should print from 0 to 100 by 1step
+for (let num of numbers) {
+  console.log(num);
+}
+
+console.log("--------------------");
+
+//should print from 6 to 40 by 2steps
+for (let num of numbers[Symbol.iterator]({
+  step: 2,
+  start: 6,
+  end: 40
+})) {
+  console.log(num);
+}
