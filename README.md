@@ -1,2 +1,2 @@
-# iterators
-making an object iterable. 
+# iterators & generators
+experimenting with iterators and generators.
